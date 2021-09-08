@@ -1,0 +1,43 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Schema for a HTML5 video control event",
+  "self": {
+    "vendor": "com.snowplowanalytics",
+    "name": "media_player_event",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The event fired by the media player",
+      "maxLength": 255
+    },
+    "player_id": {
+      "type": "string",
+      "description": "The HTML id of the video element",
+      "maxLength": 255
+    },
+    "media_type": {
+      "type": "string",
+      "enum": [
+        "AUDIO",
+        "VIDEO"
+      ],
+      "description": "If the media is a video element, or audio",
+      "maxLength": 5
+    },
+    "media_label": {
+      "type": ["string", "null"],
+      "description": "The custom media identifier given by the user",
+      "maxLength": 4096
+    }
+  },
+  "required": [
+    "type",
+    "player_id",
+    "media_type"
+  ],
+  "additionalProperties": false
+}

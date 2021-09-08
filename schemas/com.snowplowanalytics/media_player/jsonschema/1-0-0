@@ -1,0 +1,33 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Snowplow context for media players",
+  "self": {
+    "vendor": "com.snowplowanalytics",
+    "name": "media_player",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "percent_progress": {
+      "type": "integer",
+      "description": "The percent of the way through the media",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "file_extension": {
+      "type": "string",
+      "description": "The media file format",
+      "maxLength": 255
+    },
+    "fullscreen": {
+      "type": "boolean",
+      "description": "If the video element is fullscreen"
+    },
+    "picture_in_picture": {
+      "type": "boolean",
+      "description": "If the video element is showing Picture-In-Picture"
+    }
+  },
+  "additionalProperties": false
+}

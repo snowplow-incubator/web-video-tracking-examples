@@ -1,0 +1,283 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Context Schema for a media player event",
+  "self": {
+    "vendor": "org.whatwg",
+    "name": "media_element",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "auto_play": {
+      "type": "boolean",
+      "description": "If playback should automatically begin as soon as enough media is available to do so without interruption."
+    },
+    "buffered": {
+      "type": "array",
+      "description": "An array of time ranges that have been buffered",
+      "items": {
+        "type": "object",
+        "description": "A time range object",
+        "properties": {
+          "start": {
+            "type": "number",
+            "description": "The beginning of the time range",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "end": {
+            "type": "number",
+            "description": "The end of the time range",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "controls": {
+      "type": "boolean",
+      "description": "If the user agent should provide it's own set of controls"
+    },
+    "cross_origin": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "CORS settings value of the media player",
+      "maxLength": 255
+    },
+    "current_source": {
+      "type": "string",
+      "description": "The absolute URL of the media resource",
+      "maxLength": 4096
+    },
+    "current_time": {
+      "type": "number",
+      "description": "The current playback time",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "default_muted": {
+      "type": "boolean",
+      "description": "If audio is muted by default"
+    },
+    "default_playback_rate": {
+      "type": "number",
+      "description": "The default media playback rate of the player",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "disable_remote_playback": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "If the media element is allowed to have a remote playback UI"
+    },
+    "duration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total length of media in seconds",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "ended": {
+      "type": "boolean",
+      "description": "If playback of the media has ended"
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "An object of the latest error to occur, or null if no errors"
+    },
+    "loop": {
+      "type": "boolean",
+      "description": "If the video restarts after ended"
+    },
+    "muted": {
+      "type": "boolean",
+      "description": "If the media element is muted"
+    },
+    "network_state": {
+      "type": "string",
+      "enum": [
+        "NETWORK_EMPTY",
+        "NETWORK_IDLE",
+        "NETWORK_LOADING",
+        "NETWORK_NO_SOURCE"
+      ],
+      "description": "The current state of the fetching of media over the network"
+    },
+    "paused": {
+      "type": "boolean",
+      "description": "If the media element is paused"
+    },
+    "playback_rate": {
+      "type": "number",
+      "description": "Playback rate relative to 1 (normal speed)",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "played": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "An array of time ranges played",
+      "items": {
+        "type": "object",
+        "description": "A time range",
+        "properties": {
+          "start": {
+            "type": "number",
+            "description": "The beginning of the time range",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "end": {
+            "type": "number",
+            "description": "The end of the time range",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "preload": {
+      "type": "string",
+      "description": "The 'preload' HTML attribute of the media",
+      "maxLength": 4096
+    },
+    "ready_state": {
+      "type": "string",
+      "enum": [
+        "HAVE_NOTHING",
+        "HAVE_METADATA",
+        "HAVE_CURRENT_DATA",
+        "HAVE_FUTURE_DATA",
+        "HAVE_ENOUGH_DATA"
+      ],
+      "description": "The readiness of the media"
+    },
+    "seekable": {
+      "type": "array",
+      "description": "Seekable time range(s)",
+      "items": {
+        "type": "object",
+        "description": "A time range",
+        "properties": {
+          "start": {
+            "type": "number",
+            "description": "The beginning of the time range",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "end": {
+            "type": "number",
+            "description": "The end of the time range",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "seeking": {
+      "type": "boolean",
+      "description": "If the media is in the process of seeking to a new position"
+    },
+    "src": {
+      "type": "string",
+      "description": "The 'src' HTML attribute of the media element",
+      "maxLength": 4096
+    },
+    "src_object": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "The 'srcObject' property of the HTML media element"
+    },
+    "text_tracks": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "description": "An array of TextTrack objects on the media element",
+      "items": {
+        "type": "object",
+        "description": "A Text Track object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "The given label for the text track"
+          },
+          "language": {
+            "type": "string",
+            "pattern": "^(((en-GB-oed|i-ami|i-bnn|i-default|i-enochian|i-hak|i-klingon|i-lux|i-mingo|i-navajo|i-pwn|i-tao|i-tay|i-tsu|sgn-BE-FR|sgn-BE-NL|sgn-CH-DE)|(art-lojban|cel-gaulish|no-bok|no-nyn|zh-guoyu|zh-hakka|zh-min|zh-min-nan|zh-xiang))|((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+))$",
+            "description": "The locale of the text track, matching BCP-47 (https://www.rfc-editor.org/info/bcp47)"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "subtitles",
+              "captions",
+              "descriptions",
+              "chapters",
+              "metadata"
+            ],
+            "description": "The kind of text track this object represents"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "disabled",
+              "hidden",
+              "showing"
+            ],
+            "description": "The mode the text track is in"
+          }
+        }
+      }
+    },
+    "volume": {
+      "type": "number",
+      "description": "Volume level",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "auto_play",
+    "buffered",
+    "controls",
+    "cross_origin",
+    "current_source",
+    "current_time",
+    "default_muted",
+    "default_playback_rate",
+    "duration",
+    "ended",
+    "error",
+    "loop",
+    "muted",
+    "network_state",
+    "paused",
+    "playback_rate",
+    "preload",
+    "ready_state",
+    "seekable",
+    "seeking",
+    "src",
+    "src_object",
+    "volume"
+  ]
+}
