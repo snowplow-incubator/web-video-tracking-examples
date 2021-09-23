@@ -3,7 +3,8 @@ import React from 'react';
 import App from '../../App';
 import { SnowplowMediaEvent } from '../../snowplow_events';
 import { MediaEvent, TextTrackEvent, DocumentEvent, VideoEvent } from '../../wgEvents';
-import { trackMedia } from '@snowplow/browser-plugin-media-tracking'
+import { enableMediaTracking } from '../../trackMedia';
+import { enableMediaTracking as enableMediaTrackingPlugin } from '@snowplow/browser-plugin-media-tracking';
 
 interface IProps {
   app: App;
@@ -12,10 +13,11 @@ interface IProps {
 interface IState {}
 export default class HTML5Video extends React.Component<IProps, IState> {
   componentDidMount() {
-    trackMedia('html5', {
+    enableMediaTracking('html5', {
+      app: this.props.app,
       percentBoundries: [5, 10, 20],
       mediaLabel: 'Test HTML5 Video Player Label',
-      listenEvents: [
+      captureEvents: [
         MediaEvent.PAUSE,
         MediaEvent.PLAY,
         MediaEvent.SEEKED,
@@ -28,6 +30,7 @@ export default class HTML5Video extends React.Component<IProps, IState> {
         VideoEvent.LEAVEPICTUREINPICTURE,
       ],
     });
+    enableMediaTrackingPlugin('html5');
   }
 
   render() {

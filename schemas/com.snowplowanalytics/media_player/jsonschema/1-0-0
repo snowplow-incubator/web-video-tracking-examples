@@ -9,25 +9,44 @@
   },
   "type": "object",
   "properties": {
+    "file_extension": {
+      "type": [
+        "string"
+      ],
+      "enum": [
+        "aac",
+        "aacp",
+        "caf",
+        "flac",
+        "mp3",
+        "mp4",
+        "ogg",
+        "wav",
+        "webm"
+      ],
+      "description": "The media file format",
+      "minLength": 3,
+      "maxLength": 4
+    },
+    "fullscreen": {
+      "type": "boolean",
+      "description": "If the video element is fullscreen"
+    },
     "percent_progress": {
       "type": "integer",
       "description": "The percent of the way through the media",
       "minimum": 0,
       "maximum": 100
     },
-    "file_extension": {
-      "type": "string",
-      "description": "The media file format",
-      "maxLength": 255
-    },
-    "fullscreen": {
-      "type": "boolean",
-      "description": "If the video element is fullscreen"
-    },
     "picture_in_picture": {
       "type": "boolean",
       "description": "If the video element is showing Picture-In-Picture"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "required": [
+    "fullscreen",
+    "percent_progress",
+    "picture_in_picture"
+  ]
 }
