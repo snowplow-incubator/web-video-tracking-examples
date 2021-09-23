@@ -1,9 +1,9 @@
+import { enableMediaTracking } from '../../trackMedia';
 import React from 'react';
 import 'video.js/dist/video-js.css';
 
 import App from '../../App';
 import { AllEvents } from '../../eventGroups';
-import { trackMedia } from '@snowplow/browser-plugin-media-tracking';
 import VideoJsPlayer from './videojs-setup';
 
 interface IProps {
@@ -29,7 +29,11 @@ export default class VideoJS extends React.Component<IProps, IState> {
     };
   }
   componentDidMount() {
-    trackMedia('videojs', { mediaLabel: 'My fun videoJS label', listenEvents: AllEvents });
+    enableMediaTracking('videojs', {
+      app: this.props.app,
+      mediaLabel: 'My fun videoJS label',
+      captureEvents: AllEvents,
+    });
   }
   render() {
     return (

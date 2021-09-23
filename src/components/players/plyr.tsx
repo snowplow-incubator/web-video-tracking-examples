@@ -2,9 +2,8 @@ import Plyr from 'plyr';
 import React from 'react';
 
 import App from '../../App';
-import { ControlEvents } from '../../eventGroups';
-import { trackMedia } from '@snowplow/browser-plugin-media-tracking'
-
+import { DefaultEvents } from '../../eventGroups';
+import { enableMediaTracking } from '../../trackMedia';
 interface IProps {
   app: App;
 }
@@ -30,7 +29,7 @@ export default class PlyrVideo extends React.Component<IProps, IState> {
   }
   componentDidMount() {
     new Plyr('#plyr');
-    trackMedia('plyr', { mediaLabel: 'Test Plyr Label', listenEvents: ControlEvents});
+    enableMediaTracking('plyr', { app: this.props.app, mediaLabel: 'Test Plyr Label', captureEvents: DefaultEvents });
   }
   render() {
     return (

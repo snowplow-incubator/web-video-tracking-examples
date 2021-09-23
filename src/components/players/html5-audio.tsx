@@ -1,8 +1,7 @@
 import React from 'react';
 
 import App from '../../App';
-import { trackMedia } from '@snowplow/browser-plugin-media-tracking'
-
+import { enableMediaTracking } from '../../trackMedia';
 interface IProps {
   app: App;
 }
@@ -13,7 +12,7 @@ interface IState {
 export default class HTML5Audio extends React.Component<IProps, IState> {
   componentDidMount() {
     this.setState({
-      tracking: trackMedia('html5-audio', { mediaLabel: 'HTML5Audio' }),
+      tracking: enableMediaTracking('html5-audio', { app: this.props.app, mediaLabel: 'HTML5Audio' }),
     });
   }
 
