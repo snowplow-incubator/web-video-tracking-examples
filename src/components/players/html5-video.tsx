@@ -4,6 +4,8 @@ import App from '../../App';
 import { SnowplowMediaEvent } from '../../snowplow_events';
 import { MediaEvent, TextTrackEvent, DocumentEvent, VideoEvent } from '../../wgEvents';
 import { enableMediaTracking } from '../../trackMedia';
+import { enableMediaTracking as enableMediaTrackingPlugin } from '@snowplow/browser-plugin-media-tracking';
+
 interface IProps {
   app: App;
 }
@@ -28,6 +30,7 @@ export default class HTML5Video extends React.Component<IProps, IState> {
         VideoEvent.LEAVEPICTUREINPICTURE,
       ],
     });
+    enableMediaTrackingPlugin('html5');
   }
 
   render() {

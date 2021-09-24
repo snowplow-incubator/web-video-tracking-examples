@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { SelfDescribingJson, trackSelfDescribingEvent } from '@snowplow/browser-tracker';
 
 import App from './App';
