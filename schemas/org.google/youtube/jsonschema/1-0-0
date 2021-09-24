@@ -1,0 +1,164 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Context Schema for a youtube player event",
+  "self": {
+    "vendor": "org.youtube",
+    "name": "youtube",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "auto_play": {
+      "type": "boolean",
+      "description": "This specifies whether the initial video will automatically start to play when the player loads."
+    },
+    "buffering": {
+      "type": "boolean"
+    },
+    "controls": {
+      "type": "boolean",
+      "description": "Whether the video player controls are displayed: "
+    },
+    "current_time": {
+      "type": "number",
+      "description": "The current playback time",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "default_playback_rate": {
+      "type": "number",
+      "description": "The default media playback rate of the player",
+      "minimum": 1,
+      "maximum": 1
+    },
+    "duration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "The duration in seconds of the currently playing video. If the currently playing video is a live event, duration will be the elapsed time since the live video stream began.",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "ended": {
+      "type": "boolean",
+      "description": "If playback of the media has ended"
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "An object of the latest error to occur, or null if no errors"
+    },
+    "loaded": {
+      "type": "number",
+      "description": "The percentage of the video that the player shows as buffered",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "loop": {
+      "type": "boolean",
+      "description": "If the video restarts after ended"
+    },
+    "muted": {
+      "type": "boolean",
+      "description": "If the video is muted"
+    },
+    "origin": {
+      "type": "string",
+      "description": "The origin domain of the embed"
+    },
+    "paused": {
+      "type": "boolean",
+      "description": "If the media element is paused"
+    },
+    "playback_rate": {
+      "type": "number",
+      "description": "Playback rate relative to 1 (normal speed)",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "playlist": {
+      "type": "array",
+      "description": "An array of the video IDs in the playlist as they are currently ordered."
+    },
+    "playlist_index": {
+      "type": "number",
+      "description": "The index of the playlist video that is currently playing"
+    },
+    "source": {
+      "type": "string",
+      "description": "The YouTube embed URL of the media resource",
+      "maxLength": 4096
+    },
+    "src": {
+      "type": "string",
+      "description": "The 'src' HTML attribute of the media element",
+      "maxLength": 4096
+    },
+    "unstarted": {
+      "type": "boolean"
+    },
+    "url": {
+      "type": "string",
+      "description": "The YouTube video url"
+    },
+    "volume": {
+      "type": "number",
+      "description": "Volume level",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fov": {
+      "type": "number",
+      "description": "The field-of-view of the view in degrees, as measured along the longer edge of the viewport",
+      "minimum": 30,
+      "maximum": 120
+    },
+    "roll": {
+      "type": "number",
+      "description": "The clockwise or counterclockwise rotational angle of the view in degrees",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "pitch": {
+      "type": "number",
+      "description": "The vertical angle of the view in degrees",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "yaw": {
+      "type": "number",
+      "description": "The horizontal angle of the view in degrees",
+      "minimum": 0,
+      "maximum": 360
+    },
+    "avaliable_playback_rates": {
+      "type":"array",
+      "description": "An array of playback rates in which the current video is available"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "auto_play",
+    "buffering",
+    "controls",
+    "current_time",
+    "default_playback_rate",
+    "duration",
+    "ended",
+    "error",
+    "loaded",
+    "loop",
+    "muted",
+    "origin",
+    "paused",
+    "playback_rate",
+    "source",
+    "src",
+    "unstarted",
+    "volume"
+  ]
+}
