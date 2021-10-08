@@ -11,7 +11,8 @@
   "properties": {
     "player_id": {
       "type": "string",
-      "description": "The HTML id attribute of the player"
+      "description": "The HTML id of the video element",
+      "maxLength": 255
     },
     "auto_play": {
       "type": "boolean",
@@ -22,7 +23,7 @@
     },
     "controls": {
       "type": "boolean",
-      "description": "Whether the video player controls are displayed: "
+      "description": "Whether the video player controls are displayed"
     },
     "current_time": {
       "type": "number",
@@ -85,26 +86,31 @@
       "maximum": 9007199254740991
     },
     "playlist": {
-      "type": "array",
+      "type": [
+        "array",
+        "null"
+      ],
       "description": "An array of the video IDs in the playlist as they are currently ordered."
     },
     "playlist_index": {
-      "type": "number",
+      "type": [
+        "number",
+        "null"
+      ],
       "description": "The index of the playlist video that is currently playing"
-    },
-    "url": {
-      "type": "string",
-      "description": "The YouTube embed URL of the media resource",
-      "maxLength": 4096
     },
     "unstarted": {
       "type": "boolean"
+    },
+    "url": {
+      "type": "string",
+      "description": "The YouTube embed URL of the media resource"
     },
     "volume": {
       "type": "number",
       "description": "Volume level",
       "minimum": 0,
-      "maximum": 1
+      "maximum": 100
     },
     "fov": {
       "type": "number",
@@ -131,8 +137,12 @@
       "maximum": 360
     },
     "avaliable_playback_rates": {
-      "type":"array",
+      "type": "array",
       "description": "An array of playback rates in which the current video is available"
+    },
+    "cued": {
+      "type": "boolean",
+      "description": "If the video is cued"
     }
   },
   "additionalProperties": false,
