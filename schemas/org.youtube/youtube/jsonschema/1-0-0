@@ -144,14 +144,11 @@
     "default_playback_rate",
     "duration",
     "ended",
-    "error",
     "loaded",
     "loop",
     "muted",
     "paused",
     "playback_rate",
-    "source",
-    "src",
     "unstarted",
     "volume"
   ]
