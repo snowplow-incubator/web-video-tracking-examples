@@ -9,6 +9,10 @@
   },
   "type": "object",
   "properties": {
+    "player_id": {
+      "type": "string",
+      "description": "The HTML id attribute of the player"
+    },
     "auto_play": {
       "type": "boolean",
       "description": "This specifies whether the initial video will automatically start to play when the player loads."
@@ -88,22 +92,13 @@
       "type": "number",
       "description": "The index of the playlist video that is currently playing"
     },
-    "source": {
+    "url": {
       "type": "string",
       "description": "The YouTube embed URL of the media resource",
       "maxLength": 4096
     },
-    "src": {
-      "type": "string",
-      "description": "The 'src' HTML attribute of the media element",
-      "maxLength": 4096
-    },
     "unstarted": {
       "type": "boolean"
-    },
-    "url": {
-      "type": "string",
-      "description": "The YouTube video url"
     },
     "volume": {
       "type": "number",
@@ -153,7 +148,6 @@
     "loaded",
     "loop",
     "muted",
-    "origin",
     "paused",
     "playback_rate",
     "source",
