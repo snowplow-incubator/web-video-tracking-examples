@@ -14,11 +14,6 @@
       "description": "The event fired by the media player",
       "maxLength": 255
     },
-    "player_id": {
-      "type": "string",
-      "description": "The HTML id of the video element",
-      "maxLength": 255
-    },
     "media_type": {
       "type": "string",
       "enum": [
@@ -36,7 +31,6 @@
   },
   "required": [
     "type",
-    "player_id",
     "media_type"
   ],
   "additionalProperties": false
