@@ -11,7 +11,8 @@
   "properties": {
     "file_extension": {
       "type": [
-        "string"
+        "string",
+        "null"
       ],
       "enum": [
         "aac",
@@ -29,24 +30,28 @@
       "maxLength": 4
     },
     "fullscreen": {
-      "type": "boolean",
+      "type": [
+        "boolean",
+        "null"
+      ],
       "description": "If the video element is fullscreen"
     },
     "percent_progress": {
-      "type": "integer",
+      "type": [
+        "integer",
+        "null"
+      ],
       "description": "The percent of the way through the media",
       "minimum": 0,
       "maximum": 100
     },
     "picture_in_picture": {
-      "type": "boolean",
+      "type": [
+        "boolean",
+        "null"
+      ],
       "description": "If the video element is showing Picture-In-Picture"
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "fullscreen",
-    "percent_progress",
-    "picture_in_picture"
-  ]
+  "additionalProperties": false
 }
