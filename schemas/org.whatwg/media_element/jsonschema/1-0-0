@@ -9,6 +9,9 @@
   },
   "type": "object",
   "properties": {
+    "player_id": {
+      "type": "string"
+    },
     "auto_play": {
       "type": "boolean",
       "description": "If playback should automatically begin as soon as enough media is available to do so without interruption."
