@@ -19,36 +19,18 @@
       "description": "This specifies whether the initial video will automatically start to play when the player loads."
     },
     "buffering": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "If the player is buffering"
     },
     "controls": {
       "type": "boolean",
       "description": "Whether the video player controls are displayed"
-    },
-    "current_time": {
-      "type": "number",
-      "description": "The current playback time",
-      "minimum": 0,
-      "maximum": 9007199254740991
     },
     "default_playback_rate": {
       "type": "number",
       "description": "The default media playback rate of the player",
       "minimum": 1,
       "maximum": 1
-    },
-    "duration": {
-      "type": [
-        "number",
-        "null"
-      ],
-      "description": "The duration in seconds of the currently playing video. If the currently playing video is a live event, duration will be the elapsed time since the live video stream began.",
-      "minimum": 0,
-      "maximum": 9007199254740991
-    },
-    "ended": {
-      "type": "boolean",
-      "description": "If playback of the media has ended"
     },
     "error": {
       "type": [
@@ -63,27 +45,9 @@
       "minimum": 0,
       "maximum": 1
     },
-    "loop": {
-      "type": "boolean",
-      "description": "If the video restarts after ended"
-    },
-    "muted": {
-      "type": "boolean",
-      "description": "If the video is muted"
-    },
     "origin": {
       "type": "string",
       "description": "The origin domain of the embed"
-    },
-    "paused": {
-      "type": "boolean",
-      "description": "If the media element is paused"
-    },
-    "playback_rate": {
-      "type": "number",
-      "description": "Playback rate relative to 1 (normal speed)",
-      "minimum": -9007199254740991,
-      "maximum": 9007199254740991
     },
     "playlist": {
       "type": [
@@ -100,17 +64,12 @@
       "description": "The index of the playlist video that is currently playing"
     },
     "unstarted": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "If the player hasn't started"
     },
     "url": {
       "type": "string",
       "description": "The YouTube embed URL of the media resource"
-    },
-    "volume": {
-      "type": "number",
-      "description": "Volume level",
-      "minimum": 0,
-      "maximum": 100
     },
     "fov": {
       "type": "number",

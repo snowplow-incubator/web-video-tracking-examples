@@ -1,0 +1,67 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Snowplow Context Schema for a media player event",
+  "self": {
+    "vendor": "com.snowplowanalytics",
+    "name": "media_context",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "current_time": {
+      "type": "number",
+      "description": "The current playback time",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "volume": {
+      "type": "number",
+      "description": "Volume level",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "paused": {
+      "type": "boolean",
+      "description": "If the media element is paused"
+    },
+    "loop": {
+      "type": "boolean",
+      "description": "If the video restarts after ended"
+    },
+    "ended": {
+      "type": "boolean",
+      "description": "If playback of the media has ended"
+    },
+    "muted": {
+      "type": "boolean",
+      "description": "If the media element is muted"
+    },
+    "playback_rate": {
+      "type": "number",
+      "description": "Playback rate relative to 1 (normal speed)",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "duration": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Total length of media in seconds",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "current_time",
+    "duration",
+    "ended",
+    "loop",
+    "muted",
+    "paused",
+    "playback_rate",
+    "volume"
+  ]
+}

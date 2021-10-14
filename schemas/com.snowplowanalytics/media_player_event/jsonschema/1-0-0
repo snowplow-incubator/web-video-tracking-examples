@@ -14,15 +14,6 @@
       "description": "The event fired by the media player",
       "maxLength": 255
     },
-    "media_type": {
-      "type": "string",
-      "enum": [
-        "AUDIO",
-        "VIDEO"
-      ],
-      "description": "If the media is a video element, or audio",
-      "maxLength": 5
-    },
     "media_label": {
       "type": ["string", "null"],
       "description": "The custom media identifier given by the user",
@@ -31,7 +22,7 @@
   },
   "required": [
     "type",
-    "media_type"
+    "media_label"
   ],
   "additionalProperties": false
 }

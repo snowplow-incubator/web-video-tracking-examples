@@ -9,8 +9,18 @@
   },
   "type": "object",
   "properties": {
+    "media_type": {
+      "type": "string",
+      "enum": [
+        "AUDIO",
+        "VIDEO"
+      ],
+      "description": "If the media is a video element, or audio",
+      "maxLength": 5
+    },
     "player_id": {
-      "type": "string"
+      "type": "string",
+      "description": "The HTML id of the element"
     },
     "auto_play": {
       "type": "boolean",
@@ -56,12 +66,6 @@
       "description": "The absolute URL of the media resource",
       "maxLength": 4096
     },
-    "current_time": {
-      "type": "number",
-      "description": "The current playback time",
-      "minimum": 0,
-      "maximum": 9007199254740991
-    },
     "default_muted": {
       "type": "boolean",
       "description": "If audio is muted by default"
@@ -79,33 +83,12 @@
       ],
       "description": "If the media element is allowed to have a remote playback UI"
     },
-    "duration": {
-      "type": [
-        "number",
-        "null"
-      ],
-      "description": "Total length of media in seconds",
-      "minimum": 0,
-      "maximum": 9007199254740991
-    },
-    "ended": {
-      "type": "boolean",
-      "description": "If playback of the media has ended"
-    },
     "error": {
       "type": [
         "object",
         "null"
       ],
       "description": "An object of the latest error to occur, or null if no errors"
-    },
-    "loop": {
-      "type": "boolean",
-      "description": "If the video restarts after ended"
-    },
-    "muted": {
-      "type": "boolean",
-      "description": "If the media element is muted"
     },
     "network_state": {
       "type": "string",
@@ -116,16 +99,6 @@
         "NETWORK_NO_SOURCE"
       ],
       "description": "The current state of the fetching of media over the network"
-    },
-    "paused": {
-      "type": "boolean",
-      "description": "If the media element is paused"
-    },
-    "playback_rate": {
-      "type": "number",
-      "description": "Playback rate relative to 1 (normal speed)",
-      "minimum": -9007199254740991,
-      "maximum": 9007199254740991
     },
     "played": {
       "type": [
@@ -249,12 +222,6 @@
           }
         }
       }
-    },
-    "volume": {
-      "type": "number",
-      "description": "Volume level",
-      "minimum": 0,
-      "maximum": 1
     }
   },
   "additionalProperties": false,
@@ -264,23 +231,15 @@
     "controls",
     "cross_origin",
     "current_source",
-    "current_time",
     "default_muted",
     "default_playback_rate",
-    "duration",
-    "ended",
     "error",
-    "loop",
-    "muted",
     "network_state",
-    "paused",
-    "playback_rate",
     "preload",
     "ready_state",
     "seekable",
     "seeking",
     "src",
-    "src_object",
-    "volume"
+    "src_object"
   ]
 }
