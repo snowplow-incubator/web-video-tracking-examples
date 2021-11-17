@@ -1,14 +1,10 @@
-import { enableMediaTracking } from '../../trackMedia';
 import React from 'react';
 import 'video.js/dist/video-js.css';
 
-import App from '../../App';
-import { AllEvents } from '../../eventGroups';
+import { enableMediaTracking } from '@snowplow/browser-plugin-media-tracking';
 import VideoJsPlayer from './videojs-setup';
 
-interface IProps {
-  app: App;
-}
+interface IProps {}
 
 interface IState {
   videoJsOptions: any;
@@ -23,22 +19,26 @@ export default class VideoJS extends React.Component<IProps, IState> {
         controls: true,
         fluid: true,
         sources: {
-          src: 'snowplow-video.mp4',
+          src: 'test-video.mp4',
         },
       },
     };
   }
   componentDidMount() {
-    enableMediaTracking('videojs', {
-      app: this.props.app,
-      mediaLabel: 'My fun videoJS label',
-      captureEvents: AllEvents,
+    enableMediaTracking({
+      id: 'videojs',
+      options: {
+        label: 'My fun videoJS label',
+        captureEvents: ['AllEvents'],
+      },
     });
   }
   render() {
     return (
       <div id="video-wrapper">
-        <VideoJsPlayer id="videojs" {...this.state.videoJsOptions} />
+        <div id="videojs">
+          <VideoJsPlayer {...this.state.videoJsOptions} />
+        </div>
       </div>
     );
   }
